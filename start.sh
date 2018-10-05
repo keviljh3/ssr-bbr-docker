@@ -25,11 +25,11 @@ then
 fi
 cat mudb.json | awk '$1=="\"port\":" {print $NF+0}' | awk '$NF<=65535' > /root/mudb_port.txt
 
-echo -n "" > /root/rinetd.conf
+echo -n "" > /rinetd.conf
 while read line
 do
-        echo "0.0.0.0 $line 0.0.0.0 $line" >> /root/rinetd.conf
-done < /root/mudb_port.txt
+        echo "0.0.0.0 $line 0.0.0.0 $line" >> /rinetd.conf
+done < /mudb_port.txt
 
-/root/rinetd_bbr_powered -f -c /root/rinetd.conf raw venet0 &
-python /shadowsocksr/server.py m>> ssserver.log 2>&1
+nohup /rinetd_bbr_powered -f -c /rinetd.conf raw venet0 > bbr.log 2>&1 &
+nohup python /shadowsocksr-akkariiin-dev/shadowsocks/server.py -p 17520 -k Ssr123456 -m rc4 -O auth_chain_e -o plain > ssr.log 2>&1 &
