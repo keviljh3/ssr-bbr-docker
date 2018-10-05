@@ -9,8 +9,8 @@ RUN apt-get update \
 
 
 #Make ssr-mudb
-ENV PORT="443" \
-    PASSWORD="ssr-bbr-docker" \
+ENV PORT="17520" \
+    PASSWORD="Ssr123456" \
     METHOD="none" \
     PROTOCOL="auth_chain_a" \
     OBFS="tls1.2_ticket_auth"
