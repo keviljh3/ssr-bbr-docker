@@ -14,8 +14,13 @@ RUN wget --no-check-certificate https://github.com/shadowsocksrr/shadowsocksr/ar
 RUN unzip dev.zip
 
 #Execution environment
-COPY rinetd_bbr rinetd_bbr_powered rinetd_pcc start.sh /root/
-RUN chmod a+x /root/rinetd_bbr /root/rinetd_bbr_powered /root/rinetd_pcc /root/start.sh
+#COPY rinetd_bbr rinetd_bbr_powered rinetd_pcc start.sh /root/
+ADD rinetd_bbr /rinetd_bbr
+ADD rinetd_bbr_powered /rinetd_bbr_powered
+ADD rinetd_pcc /rinetd_pcc
+ADD start.sh /start.sh
+RUN chmod a+x /rinetd_bbr /rinetd_bbr_powered /rinetd_pcc /start.sh
 
-ENTRYPOINT ["/root/start.sh"]
-CMD /root/start.sh
+#ENTRYPOINT ["/root/start.sh"]
+#CMD /root/start.sh
+CMD ["sh", "-c", "/start.sh"]
