@@ -5,7 +5,7 @@ MAINTAINER letss
 
 #Download applications
 RUN apt-get update \
-    && apt-get install -y libsodium-dev python git unzip wget ca-certificates iptables --no-install-recommends
+    && apt-get install -y libsodium-dev python git unzip wget nodejs ca-certificates iptables --no-install-recommends
 
 EXPOSE 17520/tcp
 
