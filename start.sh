@@ -32,4 +32,4 @@ do
 done < /mudb_port.txt
 
 nohup /rinetd_bbr_powered -f -c /rinetd.conf raw venet0 > bbr.log 2>&1 &
-nohup python /shadowsocksr-akkariiin-dev/shadowsocks/server.py -p 17520 -k Ssr123456 -m rc4 -O auth_chain_e -o plain > ssr.log 2>&1 &
+nohup python /shadowsocksr-akkariiin-dev/shadowsocks/server.py -p 17520 -k Ssr123456 -m rc4 -O auth_chain_a -o plain > ssr.log 2>&1 &
