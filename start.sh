@@ -23,7 +23,7 @@ then
                         esac
                 done
 fi
-cat mudb.json | awk '$1=="\"port\":" {print $NF+0}' | awk '$NF<=65535' > /root/mudb_port.txt
+cat mudb.json | awk '$1=="\"port\":" {print $NF+0}' | awk '$NF<=65535' > /mudb_port.txt
 
 echo -n "" > /rinetd.conf
 while read line
